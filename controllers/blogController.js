@@ -22,7 +22,7 @@ exports.createBlog = async (req, res) => {
 
 exports.getBlog = async (req, res) => {
     try {
-        const response = await Blog.find({}).populate("comments").populate("likes").exec();
+        const response = await Blog.find({}).populate("comments").populate("likes").populate("tags").exec();
         res.status(200).json({
             status: "success",
             data: response,
